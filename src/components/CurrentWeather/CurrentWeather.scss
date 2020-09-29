@@ -1,0 +1,43 @@
+.currentWeatherMain{
+  border-top: 1px solid #939698;
+  border-bottom: 1px solid #939698;
+}
+
+.weatherBox{
+  margin: 5% 0;
+  text-align: center;
+  .addBtn{
+    position: absolute;
+    top: 8%;
+    right: 10px;
+    button {
+      border-width: 3.5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      color: #939698;
+      border-color: #939698;
+    }
+  }
+}
+
+.degrees{
+  color: #939698;
+  font-size: 30px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.locationTxt{
+  color: #c6c8c9;
+  margin: 0;
+  font-size: 16px;
+}
+
+.descriptionTxt{
+  margin: 20px;
+  color: #939698;
+  font-weight: 600;
+  font-size: 16px;
+}

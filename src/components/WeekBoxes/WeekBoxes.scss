@@ -1,0 +1,39 @@
+.weekBoxesMain {
+  margin-top: 1%;
+
+  .content {
+
+    h1 {
+      color: #939698;
+      margin-left: 7%;
+    }
+
+    p {
+      color: #939698;
+      margin-left: 7%;
+    }
+
+    .boxes {
+      flex-direction: row;
+      flex-wrap: wrap;
+      display: flex;
+      margin: 0 5% 0 6%;
+
+      .daysBox {
+        border: 1px solid #939698;
+        width: 210px;
+        height: 150px;
+        margin: 0 0 1% 1%;
+        text-align: center;
+
+        .textBox{
+          text-align: center;
+          margin-top: 10%;
+        }
+      }
+
+    }
+
+  }
+
+}

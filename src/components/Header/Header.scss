@@ -1,0 +1,17 @@
+.main{
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.navBtn{
+}
+
+.searchPanel{
+  align-self: flex-end;
+  padding-right: 10px;
+  max-width: 300px;
+  flex: 1
+}

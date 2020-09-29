@@ -1,0 +1,28 @@
+.citiesMain {
+  margin-top: 1%;
+  .content {
+    h1{
+      color: #939698;
+      text-align: center;
+    }
+    .boxes {
+      flex-direction: row;
+      flex-wrap: wrap;
+      display: flex;
+      margin: 0 5% 0 6%;
+
+      .citiesBox {
+        border: 1px solid #939698;
+        width: 300px;
+        height: 150px;
+        margin: 0 0 1% 1%;
+        display: flex;
+        align-items: center;
+        justify-content: center
+      }
+
+    }
+
+  }
+
+}
