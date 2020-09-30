@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header/Header';
 import CurrentWeather from '../../components/CurrentWeather/CurrentWeather';
-import DailyWeather from '../../components/DailyWeather/dailyWeather'
+import DailyWeather from '../../components/DailyWeather/DailyWeather'
 import { connect } from 'react-redux';
 import {getWeatherForSelectPeriod} from '../../modules/requests';
 

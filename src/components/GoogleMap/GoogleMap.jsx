@@ -21,15 +21,9 @@ export class MapContainer extends Component {
         lon: latLng.lng(),
       },
     });
-
-  };
-
-  onMarkerClick = (location) => {
-    const { position } = location;
-
     const { savePosition } = this.props;
-    savePosition(position.lat, position.lng);
-    fetchWeather(position.lat, position.lng).then(resp => {
+    savePosition(latLng.lat(), latLng.lng());
+    fetchWeather(latLng.lat(), latLng.lng()).then(resp => {
       if (!!resp) {
         const { saveWeather } = this.props;
         saveWeather(resp);
@@ -38,21 +32,26 @@ export class MapContainer extends Component {
   };
 
   render() {
-    const { currentlocation } = this.state;
+    // const { currentlocation } = this.state;
+    const { location } = this.props;
     return (
       <Map
         className={'google-map'}
         google={this.props.google}
         zoom={8}
+        initialCenter={{
+          lat: location.lat,
+          lng: location.lon
+        }}
         center={{
-          lat: currentlocation.lat,
-          lng: currentlocation.lon,
+          lat: location.lat,
+          lng: location.lon,
         }}
         onClick={this.mapClicked}
       >
-        <Marker onClick={this.onMarkerClick}
+        <Marker
                 name={'Current location'}
-                position={{ lat: currentlocation.lat, lng: currentlocation.lon }}
+                position={{ lat: location.lat, lng: location.lon }}
         />
       </Map>
     );

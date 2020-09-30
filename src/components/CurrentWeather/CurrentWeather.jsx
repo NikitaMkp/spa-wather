@@ -3,28 +3,10 @@ import {Spin, Button} from 'antd';
 import {LoadingOutlined} from '@ant-design/icons';
 import {connect} from 'react-redux'
 import './CurrentWeather.scss'
-import { setWeather, setCity, setPosition } from '../../actions';
-import {fetchWeather} from "../../modules/requests";
+import { setCity } from '../../actions';
 
 
 const CurrentWeather = ({showDescriptionWeather = true, weather, ...props}) => {
-  const [loaded, setLoaded] = React.useState(false)
-
-  React.useEffect(() => {
-    navigator.geolocation.getCurrentPosition(getWeather)
-  }, [])
-
-  const getWeather = (position) => {
-    const { savePosition } = props;
-    savePosition(position.coords.latitude, position.coords.longitude);
-    fetchWeather(position.coords.latitude, position.coords.longitude).then(resp => {
-      if (!!resp) {
-        const {saveWeather} = props
-        saveWeather(resp)
-        setLoaded(true)
-      }
-    })
-  }
 
   const antIcon = <LoadingOutlined style={{fontSize: 48, color: "#939698"}} spin/>;
 
@@ -40,7 +22,7 @@ const CurrentWeather = ({showDescriptionWeather = true, weather, ...props}) => {
 
   return (
     <div className={'currentWeatherMain'}>
-      {(loaded && !!weather) ?
+      {!!Object.keys(weather).length?
         <div className={'weatherBox'}>
           <p className={'degrees'}>{`${Math.round(weather.weather.main.temp)} °C`}</p>
           <p className={'locationTxt'}>{`${weather.weather.name}, ${weather.weather.sys.country}`}</p>
@@ -66,15 +48,9 @@ const CurrentWeather = ({showDescriptionWeather = true, weather, ...props}) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    saveWeather: data => {
-      dispatch(setWeather(data))
-    },
     saveCity: data => {
       dispatch(setCity(data))
     },
-    savePosition: (lat, lon) => {
-      dispatch(setPosition(lat, lon))
-    }
   }
 }
 
